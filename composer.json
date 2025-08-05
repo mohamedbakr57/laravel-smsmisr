@@ -1,0 +1,24 @@
+{
+  "name": "bakr/laravel-smsmisr",
+  "description": "Laravel package for sending SMS using SMSMisr API",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Bakr\\Smsmisr\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bakr\\Smsmisr\\SmsmisrServiceProvider"
+      ],
+      "aliases": {
+        "Smsmisr": "Bakr\\Smsmisr\\Facades\\Smsmisr"
+      }
+    }
+  },
+  "require": {
+    "php": "^8.0"
+  }
+}
