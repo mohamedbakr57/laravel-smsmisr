@@ -20,7 +20,7 @@ Built with simplicity, flexibility, and modern Laravel practices in mind.
   - [Schedule an SMS](#schedule-an-sms)
 - [Requirements](#-requirements)
 - [Examples](#-examples)
-- [Testing](#-testing)
+<!-- - [Testing](#-testing) -->
 - [Contributing](#-contributing)
 - [License](#-license)
 - [Credits](#-credits)
