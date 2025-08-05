@@ -1,7 +1,7 @@
 # Laravel SMSMisr 📲
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bakr/smsmisr.svg)](https://packagist.org/packages/bakr/smsmisr)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/bakr/laravel-smsmisr.svg)](https://packagist.org/packages/bakr/laravel-smsmisr)
+<!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) -->
 [![Total Downloads](https://img.shields.io/packagist/dt/bakr/smsmisr.svg)](https://packagist.org/packages/bakr/smsmisr)
 
 A modern Laravel package for sending SMS messages using the **SMSMisr** gateway.  
