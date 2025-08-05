@@ -1,76 +1,121 @@
-# Laravel SMSMisr
+# 📲 Laravel SMSMisr
 
-A modern Laravel package to send SMS messages using [SMSMisr](https://smsmisr.com/) API. Supports bulk sending, delayed delivery, and Arabic/English content — powered by Laravel's HTTP client.
+A modern and lightweight Laravel package to send SMS messages via [SMSMisr](https://smsmisr.com/) — simple, flexible, and built using Laravel's native HTTP client.
+
+Send bulk SMS, schedule messages, and handle Arabic/English content with ease. 💬
 
 ---
 
-## 🚀 Installation
+## 📦 Installation
+
+Install the package via Composer:
 
 ```bash
 composer require bakr/smsmisr
+Publish the config file (optional):
 
-✅ Requirements
+bash
+
+php artisan vendor:publish --tag=smsmisr-config
+📋 Requirements
 PHP >= 8.1
 
 Laravel >= 9.x
 
-Laravel HTTP client (built-in from Laravel 7.x)
+SMSMisr account & credentials
 
-A valid SMSMisr account
+Laravel HTTP client (built-in)
 
 ⚙️ Configuration
-Publish the config file:
-php artisan vendor:publish --tag=smsmisr-config
+Add your credentials to .env:
 
-This will create config/smsmisr.php. Fill in your credentials:
-
-return [
-    'username'    => env('SMSMISR_USERNAME'),
-    'password'    => env('SMSMISR_PASSWORD'),
-    'sender'      => env('SMSMISR_SENDER'),
-    'environment' => env('SMSMISR_ENVIRONMENT', '1'), // 1 = production, 0 = test
-];
+env
 
 SMSMISR_USERNAME=your_username
 SMSMISR_PASSWORD=your_password
 SMSMISR_SENDER=your_sender_id
-SMSMISR_ENVIRONMENT=1
+SMSMISR_ENVIRONMENT=1 # 1 = production, 0 = test
+Optionally, publish and edit the configuration:
+
+
+php artisan vendor:publish --tag=smsmisr-config
+This will create a file at: config/smsmisr.php.
 
 ✉️ Usage Examples
-
-🔹 Send SMS (single or multiple numbers)
+✅ Send SMS
 
 use Bakr\Smsmisr\Facades\Smsmisr;
 
-$response = Smsmisr::send(
-    'Your verification code is 123456',
-    ['201234567890', '201098765432'],
-    2 // Arabic = 2, English = 1
+Smsmisr::send(
+    'Hello from Laravel 🎉',
+    '201234567890'
 );
+✅ Send to Multiple Recipients
+php
+Copy
+Edit
+Smsmisr::send(
+    'Big update 🚀',
+    ['201234567890', '201098765432']
+);
+🕐 Schedule SMS (Delayed)
 
-🔹 Delayed SMS
-
-$response = Smsmisr::send(
-    'This is a delayed message',
+Smsmisr::send(
+    'Happy New Year 🎊',
     '201234567890',
-    1,
+    1, // English
     '2025-12-31 23:59:00'
 );
+💰 Check Balance
 
-🔹 Check balance
 $response = Smsmisr::balance();
+🧪 Testing
+Use Laravel’s HTTP fakes:
 
-📦 Publishable Assets
 
-Config file: php artisan vendor:publish --tag=smsmisr-config
+use Illuminate\Support\Facades\Http;
 
-📄 License
+Http::fake();
 
-This package is open-sourced software licensed under the MIT license.
+Smsmisr::send('Test message', '201234567890');
 
+// Assert the request was made
+Http::assertSent(...);
+🛠 Advanced
+You can override the default environment (test vs production) using:
+
+
+config(['smsmisr.environment' => '0']); // Test mode
+🧾 License
+MIT License
+
+
+MIT License
+
+Copyright (c) 2025 Bakr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+
+(Include full MIT license text in LICENSE file)
 🤝 Contributing
-Feel free to submit issues or PRs. Contributions are welcome and appreciated!
+Pull requests are welcome! ❤️
+For major changes, please open an issue first to discuss what you'd like to change.
 
-🌐 Author
-Developed by Bakr.
+👤 Author
+Bakr
+GitHub: github.com/bakr
+
+🔗 Links
+📘 SMSMisr API Documentation
+
+🐙 GitHub Repo
+
+📦 Packagist Package
+
+Thanks for using Laravel SMSMisr! ✨
+
+
+---
 
